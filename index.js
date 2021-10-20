@@ -18,6 +18,10 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("initial orders", loginInfo, orders);
   });
 
+  socket.on("message", (loginInfo, message) => {
+    socket.broadcast.emit("message", loginInfo, message);
+  });
+
 
 });
 
@@ -26,16 +30,3 @@ const PORT = process.env.PORT || 3000;
 httpServer.listen(PORT, () => {
   console.log(`server started at port ${PORT}`);
 });
-
-
-// const { Server } = require("socket.io");
-
-// const io = new Server({ /* options */ });
-
-// io.on("connection", (socket) => {
-//   // ...
-//   console.log("connected a socket");
-// });
-
-// io.listen(3000);
-
