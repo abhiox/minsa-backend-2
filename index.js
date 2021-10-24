@@ -21,6 +21,18 @@ io.on("connection", (socket) => {
   socket.on("message", (loginInfo, message) => {
     socket.broadcast.emit("message", loginInfo, message);
   });
+  
+  socket.on("correction", (loginInfo, correction) => {
+    socket.broadcast.emit("correction", loginInfo, correction);
+  });
+  
+  socket.on("ffe", (loginInfo, ffe) => {
+    socket.broadcast.emit("ffe", loginInfo, ffe);
+  });
+  
+  socket.on("actions", (loginInfo, actions) => {
+    socket.broadcast.emit("actions", loginInfo, actions);
+  });
 
 
 });
